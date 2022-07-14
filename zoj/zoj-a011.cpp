@@ -1,31 +1,23 @@
-#include<bits/stdc++.h>
-#define int long long
-#define endl '\n'
-#define ull unsigned long long
-//#define stringstream ss
+#include<iostream>
 using namespace std;
 
-signed main(){
-	ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
-	string str,tmp,kk;
+int main(){
+	string str;
 	while(getline(cin,str)){
-		for(int i=0;i<str.size();i++){
-			if((str[i]>='a'&&str[i]<='z')||(str[i]<='Z'&&str[i]>='A')){
-					//str[i] = " ";
-					kk += " ";
-			}else{
-				kk += str[i];
+		int tot = 0;
+		for(int i=1;i<str.size();i++){
+			if(!( (str[i]<='z'&&str[i]>='a') || (str[i]<='Z'&&str[i]>='A') ) && ((str[i-1]<='z'&&str[i-1]>='a')||(str[i-1]<='Z'&&str[i-1]>='A'))){
+				tot++;
 			}
-		}
-		stringstream sss(str);
-		int ans = 0;
-		while(sss>>tmp){
-			ans++;
-		}
-		cout<<ans<<endl;
+			if(i==str.size()-1 && ((str[i]<='z'&&str[i]>='a') || (str[i]<='Z'&&str[i]>='A'))){
+				tot++;
+			}
+		} 
+		cout<<tot<<endl;
 	}
-	
-	
+
+
+
 
 
 
